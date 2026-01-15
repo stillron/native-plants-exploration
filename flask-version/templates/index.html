@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Native Plants Garden Planner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"
+        integrity="sha384-/TgkGk7p307TH7EXJDuUlgG3Ce1UVolAOFopFekQkkXihi5u/6OCvVKyz1W+idaz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Native Plants Garden Planner</h1>
+            <div class="box">
+                <h2 class="subtitle">Filter by Bloom Season</h2>
+                <select name="bloom_season" id="bloom-season-selector" hx-get="/api/plants" hx-trigger="change changed" hx-target="#plant-results" hx-swap="innerHTML swap:.25s">
+                    <option value="">Filter by Season</option>
+                    <option value="spring">Spring</option>
+                    <option value="mid_summer">Mid-Summer</option>
+                    <option value="late_summer">Late-Summer</option>
+                    <option value="early_autumn">Early-Autumn</option>
+                </select>
+                <!-- TODO: Add dropdown/checkboxes here -->
+                <!-- TODO: Wire up HTMX to call /api/plants with filter params -->
+            </div>
+        </div>
+
+        <div id="plant-results" hx-get="/api/plants" hx-trigger="load">
+            <p>Click a filter above to see plants!</p>
+        </div>
+    </section>
+</body>
+
+</html>
