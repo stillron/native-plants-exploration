@@ -78,18 +78,10 @@ def seed_data():
     # Add 5 test plants
     plants = [
         Plant(common_name="bee balm", bloom_seasons=["mid_summer", "late_summer"]),
-        Plant(
-            common_name="black-eyed susan",
-            bloom_seasons=["mid_summer", "late_summer", "early_autumn"],
-        ),
-        Plant(
-            common_name="purple coneflower", bloom_seasons=["mid_summer", "late_summer"]
-        ),
+        Plant(common_name="black-eyed susan",bloom_seasons=["mid_summer", "late_summer", "early_autumn"]),
+        Plant(common_name="purple coneflower", bloom_seasons=["mid_summer", "late_summer"]),
         Plant(common_name="blue flag iris", bloom_seasons=["spring", "early_summer"]),
-        Plant(
-            common_name="cardinal flower",
-            bloom_seasons=["mid_summer", "late_summer", "early_autumn"],
-        ),
+        Plant(common_name="cardinal flower", bloom_seasons=["mid_summer", "late_summer", "early_autumn"]),
     ]
 
     db.session.add_all(plants)
